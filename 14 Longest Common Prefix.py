@@ -6,19 +6,17 @@ class Solution:
         """
         if len(strs) == 0:
             return ""
-        res = strs[0]
-        for str in strs[1:]:
-            res = self.commonPrefix(res, str)
-        return res
+        strs.sort()
+        a = strs[0]
+        b = strs[-1]
 
-    def commonPrefix(self, str1, str2):
-        l = min(len(str1), len(str2))
+        l = min(len(a), len(b))
         if l == 0:
             return ''
         for i in range(l):
-            if str1[i] != str2[i]:
-                return str1[:i]
-        return str1[:l]
+            if a[i] != b[i]:
+                return a[:i]
+        return a[:l]
 
 
 if __name__ == '__main__':
